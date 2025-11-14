@@ -1,0 +1,262 @@
+/* 1. Reset Básico y Tipografía */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    --color-primary: #4a90e2; /* Azul suave */
+    --color-primary-hover: #357bd8;
+    --color-secondary: #f0f4f8; /* Gris azulado muy claro */
+    --color-background: #ffffff;
+    --color-text-dark: #333;
+    --color-text-light: #555;
+    --border-radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinear arriba para que no flote en pantallas grandes */
+    padding: 20px;
+}
+
+#app-container {
+    background-color: var(--color-background);
+    width: 100%;
+    max-width: 800px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--color-primary);
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#main-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex-grow: 1; /* Ocupa el espacio restante */
+    text-align: center;
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+/* 2. Estilos para el Contenido Dinámico (Cards, Grids) */
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: #f7f9fc;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.card-action {
+    cursor: pointer;
+}
+
+.card-action:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+
+.card-subtitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 15px;
+    border-left: 4px solid var(--color-primary);
+    padding-left: 10px;
+}
+
+/* 3. Estilos de Acordeón (Ficha Técnica) */
+
+.accordion-container {
+    margin-top: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.accordion-header:hover {
+    background-color: #f7f9fc;
+}
+
+.accordion-header.active {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+.accordion-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    transition: transform 0.3s;
+}
+
+.accordion-header.active .accordion-icon {
+    transform: rotate(45deg); /* Gira el '+' a 'x' o '-' */
+}
+
+.accordion-content {
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-top: 1px solid #e0e0e0;
+}
+
+.accordion-content.hidden {
+    display: none;
+}
+
+.accordion-content p {
+    margin-bottom: 10px;
+}
+
+/* 4. Estilos de Manuales */
+.manual-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.manual-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 15px;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.manual-link:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.manual-link svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+/* 5. Estilos de Comentarios */
+.comment-text {
+    font-style: italic;
+    color: var(--color-text-light);
+    border-left: 3px solid #ccc;
+    padding-left: 15px;
+}
+
+/* 6. Mensajes de Error/No Data */
+.error-message, .no-data-message {
+    padding: 20px;
+    border-radius: var(--border-radius);
+    background-color: #ffebeb;
+    color: #cc0000;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* 7. Nuevo Botón de Retroceso en el Footer */
+.back-button-footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    margin-top: 25px; /* Aumentamos el margen superior para separarlo del contenido */
+    
+    /* Estilo Moderno y Principal */
+    background-color: var(--color-primary); /* Fondo azul principal */
+    color: white; /* Texto blanco */
+    border: none; /* Quitamos el borde gris */
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1.1rem; /* Un poco más grande */
+    font-weight: 700; /* Más énfasis */
+    text-transform: uppercase; /* En mayúsculas */
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra sutil para darle profundidad */
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.back-button-footer:hover {
+    background-color: var(--color-primary-hover); /* Oscurece al pasar el ratón */
+    transform: translateY(-1px); /* Efecto 3D sutil */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.back-button-footer:active {
+    transform: translateY(0); /* Presionar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.back-button-footer svg {
+    margin-right: 10px; /* Aumentamos el espacio */
+    width: 24px; /* Un poco más grande */
+    height: 24px;
+    stroke: white; /* Aseguramos que el icono sea blanco */
+}
