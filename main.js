@@ -39,6 +39,114 @@ const biomedicData = {
             ]
         },
         {
+            nombre: "hemodiálisis",
+            marcas: [
+                {
+                    nombre: "cordiaX",
+                    modelos: [
+                        {
+                            nombre: "5008s",
+                            fallas: [
+                                {
+                                    titulo: "Alarma: Power failure / Emergency operation (tono continuo)",
+                                    solucion: "Solución rápida: verificar alimentación: toma, UPS, fusibles principales;comprobar cable de alimentación y conexión a la red. Reiniciar la máquina solo cuando la tensión sea estable. Si la alarma persiste, revisar fuente de alimentación interna y fuses (según manual de servicio)."
+                                },
+                                {
+                                    titulo: "Alarmas y problemas de agua / flujo de entrada",
+                                    solucion: "Qué pasa: caudal de agua insuficiente -> falla en pruebas T1, impossibilidad de alcanzar caudal de dializado o generación de alarmas de agua. Causas comunes: filtro obstruido, válvula reguladora mal ajustada (AO4), baja presión de red, tubería parcial obstruida.Solución: comprobar filtros de entrada y reemplazarlos; medir caudal de entrada (debe estar dentro del rango indicado por el manual: ~1300–1550 ml/min según servicio); ajustar la válvula reductora (AO4) para aumentar flujo; verificar electroválvulas y sensores de flujo. Si no llega a rango, avisar a servicio o cambiar pieza."
+                                },
+                                {
+                                    titulo: "Detección de sangre / blood leak o falsas alarmas de blood leak",
+                                    solucion: "Solución: inspeccionar y limpiar el detector de sangre; asegurarse de que no haya luz directa; revisar el paso de la sangría (tubing) y el dializador; reemplazar el sensor si está dañado. Antes de ponerla en marcha, hacer test de blood leak en modo servicio."
+                                },
+                                {
+                                    titulo: "Aire en la hidráulica / Air in hydraulics / venous/arterial air alarm",
+                                    solucion: "Causas: mala cebada, bomba de aspiración/degassing con presión incorrecta, conexiones flojas o bolsas vacías, burbujas por mal priming. Solución: detener tratamiento, purgar el sistema (rinse), comprobar calibración de degassing (valores típicos ~ -800 mbar) y sensores; eliminar burbujas en circuitos; si el equipo forza desinfección por aire en hidráulica, revisar válvula de degas y calibración."
+                                },
+                                {
+                                    titulo: "Problemas de conductividad / temperatura del dializado",
+                                    solucion: "Causas: sensores sucios/fallos, solución concentrada mal preparada, problemas de mezclador/concentrados, calentador defectuoso. Solución: verificar preparación de concentrados, limpiar/recalibrar sensores de conductividad y temperatura (hacer prueba de servicio), comprobar la correcta mezcla del dializado y funcionamiento del calentador. No usar la máquina si conductividad no se estabiliza.."
+                                },
+                                {
+                                    titulo: "UF (ultrafiltration) se apaga / UF button turns red / UF profile lost",
+                                    solucion: "Solución: salir del perfil y reingresar con parámetros correctos; si la función no vuelve, reiniciar equipo y verificar memoria de errores; revisar sensores de UF y calibración. En algunos casos la máquina debe reiniciarse entre tratamientos.."
+                                },
+                                {
+                                    titulo: "Pantalla/Software se congela / mensajes de error no claros",
+                                    solucion: "Solución: leer el mensaje con el botón Message para ver instrucciones; seguir pasos indicados por la ayuda en pantalla; reiniciar la unidad si procede; si vuelve a repetirse, chequeo de la versión SW y actualización/consulta con soporte Fresenius. Mantener registro de los códigos de error para diagnóstico.."
+                                },
+                                {
+                                    titulo: "Problemas con bombas y presión arterial/bp “grayed out”",
+                                    solucion: "Solución: realizar mediciones manuales indicadas, reiniciar máquina entre tratamientos para recuperar funciones; revisar y calibrar sensores de presión; verificar el manguito y su conexión.."
+                                },
+                                {
+                                    titulo: "Formación excesiva de espuma en el venous bubble catcher",
+                                    solucion: "Solución: enjuagar/diluir correctamente según protocolo de desinfección, revisar conexiones, ajustar nivel del venous bubble catcher (limites micrométricos), realizar test de degassing y rinses de seguridad.."
+                                }
+                            ],
+                            manuales: [
+            
+                                { titulo: "manual de cordiax 5008s", url: "https://es.scribd.com/document/677892797/5008S-IFU-11A-2015-SW-04-58-ES-M55251#page=1" }
+                            ],
+                            comentarios: "«Las causas más comunes del Fresenius 5008S según foros de biomédicos suelen ser caudal de agua bajo por AO4 desajustada, filtros sucios o baja presión; falsas alarmas de blood leak por sensor sucio, luz externa o microburbujas; “air in hydraulics” repetido por vacío insuficiente, O-rings secos o electroválvula de degas pegada; lecturas malas de conductividad por sensor sucio, mezcla incorrecta o concentrado mal preparado; cuelgues de software por cambios continuos de UF o versión vieja del sistema; temperatura de dializado baja por calentador con sarro o relé flojo; power failure falso por UPS con microcortes o cable/fusible inestable; espuma en el venoso por mal enjuague de desinfectante o mal degassing; bomba arterial ruidosa por rodillos gastados; y sensores de presión inestables por humedad en conectores o sensores ya vencidos."
+                        },
+                        
+                    ]
+                },
+                {
+                    nombre: "oCm",
+                    modelos: [
+                        {
+                            nombre: "4008s",
+                            fallas: [
+                                {
+                                    titulo: "No enciende / falla de alimentación",
+                                    solucion: "Causas probables: fallo en la alimentación de red; fusible o disyuntor disparado; fuente de alimentación interna dañada; batería auxiliar agotada.Diagnóstico rápido: comprobar voltaje de red en la entrada; verificar fusibles/disyuntores externos e internos; medir salidas de la PSU; revisar estado de batería. — Solución: restablecer/recambiar fusible o disyuntor; reemplazar batería; reparar o cambiar la PSU; seguir procedimiento de seguridad del manual antes de abrir el equipo ."
+                                },
+                               
+                                {
+                                    titulo: "Alarma de conductividad / conductividad fuera de rango",
+                                    solucion: " Causas probables: agua de diálisis con conductividad fuera de especificación; sensores de conductividad sucios/dañados; líneas de electrolito conectadas incorrectamente; calibración desplazada. — Diagnóstico rápido: validar conductividad del líquido con medidor independiente; inspeccionar y limpiar electrodos; comprobar conexiones de líneas de sal y A/B; revisar historial de calibración. — Solución: corregir la calidad del agua o fuente; limpiar/reemplazar sensor de conductividad; recalibrar según procedimiento; reemplazar cartuchos/electrodos defectuosos."
+                                },
+                                {
+                                    titulo: "Alarmas de presión (arterial/venosa / alta-baja)",
+                                    solucion: "Causas probables: oclusión en líneas sanguíneas; mal posicionamiento de clamps o pinzas; sangrado o desconexión parcial; monitor de presión con fallo o sensor de presión obstruido. — Diagnóstico rápido: inspeccionar circuitos sanguíneos y líneas por kinks/obstrucciones; comprobar transductores y tubuladuras; verificar el correcto montaje del set. — Solución: corregir o reemplazar líneas o filtros obstruidos; limpiar o reemplazar transductor de presión; ajustar clamps y asegurar conexiones ."
+                                },
+                                {
+                                    titulo: "Bombas (sanguínea o de DIA) no arranca / fallo de caudal",
+                                    solucion: "Causas probables: motor de bomba atascado; encoder o sensor de posición defectuoso; obstrucción en el circuito; firmware que reporta error. — Diagnóstico rápido: intentar prueba de bomba en modo servicio; medir señales del motor/encoder; inspeccionar rotor y mecanismo por desgaste o suciedad. — Solución: limpieza/ lubricación según manual; reemplazo de componentes mecánicos o encoder; reinstalar/actualizar software de control si procede ."
+                                },
+                                {
+                                    titulo: "Fuga de agua / alarma de fuga",
+                                    solucion: "Causas probables: juntas, mangueras o racores deteriorados; accesorios del dializador mal instalados; bandeja de drenaje obstruida; ruptura de intercambio de flujo. — Diagnóstico rápido: localizar visualmente orígenes de humedad; probar circuitos con agua a baja presión; revisar sensores de fuga y bandejas. — Solución: reemplazar juntas/mangueras o racores defectuosos; limpiar drenajes; reparar carcasas dañadas y recalibrar sensores de fuga ."
+                                },
+                                {
+                                    titulo: "Alarmas de recirculación de sangre / detector de sangre en el dializado (OD)",
+                                    solucion: "Causas probables: ruptura o mal asiento del dializador; problemas en el sensor óptico; contaminación cruzada o burbujas que generan lectura errónea. — Diagnóstico rápido: inspección del dializador y sus conexiones; prueba del sensor OD con solución control; observar burbujas o sangrado en el circuito. — Solución: cambiar dializador si presenta fallo; limpiar/reemplazar sensor óptico; eliminar bolsas de aire y purgar circuito ."
+                                },
+                                {
+                                    titulo: "Errores de software / pantalla bloqueada / mensajes incomprensibles",
+                                    solucion: "Causas probables: corrupción de firmware; fallos temporales del controlador; batería RTC agotada. — Diagnóstico rápido: reiniciar controladamente y revisar registro de errores en modo servicio; comprobar versión de software; verificar reloj/fecha y batería. — Solución: reinicio controlado; actualizar o reinstalar firmware según manual de servicio; reemplazar batería de memoria si está agotada ."
+                                },
+                                {
+                                    titulo: "Calentamiento excesivo / ventilación insuficiente",
+                                    solucion: "Causas probables: filtro de ventilación obstruido; ventilador defectuoso; carga interna anómala en PSU. — Diagnóstico rápido: medir temperatura en compartimento PSU; comprobar flujo de aire y estado de filtros; escuchar funcionamiento de ventiladores. — Solución: limpiar o cambiar filtros; reemplazar ventilador; evaluar PSU y componentes térmicos según manual ."
+                                }
+                            ],
+                            manuales: [
+            
+                                { titulo: "Referencia Técnica - manual", url: "https://es.scribd.com/document/455933907/Manual-4008S-V10-pdf" }
+                            ],
+                            comentarios: "«usuarios y técnicos en foros y notas técnicas comentan que el Fresenius 4008S suele presentar problemas recurrentes como alarmas de conductividad por sensores sucios o calibración desplazada, fallos de presión por oclusiones o transductores obstruidos, bombas con errores por encoders o desgaste mecánico, detección de fugas por juntas o racores dañados, y reinicios/errores de software atribuibles a corrupción de firmware o batería de respaldo agotada; las recomendaciones prácticas más citadas son verificar conductividad con medidor independiente, inspeccionar y reemplazar tubuladuras y transductores, probar bombas en modo servicio y revisar encoders, limpiar o cambiar sensores ópticos y filtros de ventilación, y seguir procedimientos y valores del manual técnico para calibraciones y reemplazos (servicio/firmware)"
+                        },
+                        
+                    ]
+                }
+            
+                
+            ]
+        },
+        {
             nombre: "Desfibriladores / DEA",
             marcas: [
                 {
