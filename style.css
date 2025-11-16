@@ -35,34 +35,27 @@ body {
     max-width: 800px;
     border-radius: var(--border-radius);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-header {
-    display: flex;
-    align-items: center;
-    padding: 15px 20px;
-    background-color: var(--color-primary);
-    color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-#main-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    flex-grow: 1; /* Ocupa el espacio restante */
-    text-align: center;
-    margin: 0;
-}
-
-main {
     padding: 20px;
 }
 
-/* 2. Estilos para el Contenido Dinámico (Cards, Grids) */
+/* 2. Encabezado y Título */
+header {
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+#main-title {
+    font-size: 2rem;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* 3. Contenido Principal y Grid */
+#app {
+    padding: 10px 0;
+}
 
 .content-grid {
     display: grid;
@@ -70,109 +63,119 @@ main {
     gap: 20px;
 }
 
+/* 4. Tarjetas (Cards) */
 .card {
-    background-color: #f7f9fc;
+    background-color: #fff;
     border: 1px solid #e0e0e0;
     border-radius: var(--border-radius);
     padding: 20px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
+    transition: all 0.2s ease-in-out;
 }
 
 .card-action {
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el icono y el título horizontalmente */
+    text-align: center;
+    padding: 20px 15px;
 }
 
 .card-action:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
 }
 
 .card-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    margin-bottom: 5px;
+    font-size: 1.35rem; 
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--color-text-dark);
 }
 
 .card-subtitle {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-text-dark);
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 5px;
     margin-bottom: 15px;
-    border-left: 4px solid var(--color-primary);
-    padding-left: 10px;
+    font-weight: 600;
 }
 
-/* 3. Estilos de Acordeón (Ficha Técnica) */
+.card-description {
+    color: var(--color-text-light);
+    font-size: 1rem;
+    margin-top: 5px;
+}
 
-.accordion-container {
-    margin-top: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: var(--border-radius);
+/* ESTILO DEL ICONO LOCAL (NUEVO) */
+.card-icon {
+    width: 70px; /* Tamaño del icono */
+    height: 70px;
+    margin-bottom: 15px; /* Espacio entre el icono y el título */
+    border-radius: 50%; /* Lo hace circular */
+    object-fit: contain; /* Ajusta la imagen DENTRO del círculo */
+    background-color: var(--color-secondary); /* Fondo para dar el efecto de círculo claro */
+    padding: 5px; /* Pequeño espacio dentro del círculo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para destacarlo */
+    display: block; 
+}
+
+
+/* 5. Acordeón (Ficha Técnica) */
+.accordion-item {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 8px;
     overflow: hidden;
 }
 
-.accordion-item {
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.accordion-item:last-child {
-    border-bottom: none;
-}
-
 .accordion-header {
-    width: 100%;
-    background-color: #ffffff;
+    background-color: var(--color-primary);
+    color: white;
     padding: 15px 20px;
-    border: none;
+    width: 100%;
     text-align: left;
+    border: none;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    color: var(--color-text-dark);
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: background-color 0.2s;
 }
 
-.accordion-header:hover {
-    background-color: #f7f9fc;
-}
-
-.accordion-header.active {
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
+.accordion-header:hover, .accordion-header.active {
+    background-color: var(--color-primary-hover);
 }
 
 .accordion-icon {
     font-size: 1.5rem;
     line-height: 1;
-    transition: transform 0.3s;
-}
-
-.accordion-header.active .accordion-icon {
-    transform: rotate(45deg); /* Gira el '+' a 'x' o '-' */
 }
 
 .accordion-content {
-    padding: 15px 20px;
-    background-color: #ffffff;
-    border-top: 1px solid #e0e0e0;
-}
-
-.accordion-content.hidden {
-    display: none;
+    padding: 20px;
+    background-color: #fafafa;
+    border-top: 1px solid #eee;
 }
 
 .accordion-content p {
     margin-bottom: 10px;
+    font-size: 0.95rem;
 }
 
-/* 4. Estilos de Manuales */
+.accordion-content p strong {
+    color: var(--color-primary);
+}
+
+.hidden {
+    display: none;
+}
+
+/* 6. Enlaces y Mensajes */
 .manual-list {
     display: flex;
     flex-direction: column;
@@ -180,41 +183,39 @@ main {
 }
 
 .manual-link {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    color: var(--color-primary);
     text-decoration: none;
+    color: var(--color-text-dark);
     font-weight: 600;
     padding: 10px 15px;
-    border: 1px solid var(--color-primary);
-    border-radius: var(--border-radius);
-    transition: background-color 0.2s, color 0.2s;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: var(--color-secondary);
+    transition: background-color 0.2s, border-color 0.2s;
 }
 
 .manual-link:hover {
-    background-color: var(--color-primary);
-    color: white;
+    background-color: #e6eef5;
+    border-color: var(--color-primary);
 }
 
 .manual-link svg {
     width: 20px;
     height: 20px;
-    fill: currentColor;
+    fill: var(--color-primary);
 }
 
-/* 5. Estilos de Comentarios */
 .comment-text {
+    background-color: #fff;
+    border-left: 5px solid var(--color-primary);
+    padding: 15px;
     font-style: italic;
     color: var(--color-text-light);
-    border-left: 3px solid #ccc;
-    padding-left: 15px;
+    border-radius: 0 8px 8px 0;
 }
 
-/* 6. Mensajes de Error/No Data */
-.error-message, .no-data-message {
-    padding: 20px;
-    border-radius: var(--border-radius);
-    background-color: #ffebeb;
+.no-data-message {
     color: #cc0000;
     text-align: center;
     font-weight: 600;
@@ -245,18 +246,13 @@ main {
 
 .back-button-footer:hover {
     background-color: var(--color-primary-hover); /* Oscurece al pasar el ratón */
-    transform: translateY(-1px); /* Efecto 3D sutil */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.back-button-footer:active {
-    transform: translateY(0); /* Presionar */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px); /* Efecto sutil de levantamiento */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .back-button-footer svg {
-    margin-right: 10px; /* Aumentamos el espacio */
-    width: 24px; /* Un poco más grande */
-    height: 24px;
-    stroke: white; /* Aseguramos que el icono sea blanco */
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    stroke: white; /* Color del icono */
 }
