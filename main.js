@@ -1,9 +1,9 @@
 // Base de datos técnica para Biomedic Helper
-// Incluye Tomógrafos, Desfibriladores/DEA, Monitores Multiparámetro, Electrocardiógrafos y Ecógrafos.
 const biomedicData = {
     categorias: [
         {
             nombre: "Tomógrafos",
+            icono: "img/imgt.png", // RUTA LOCAL
             marcas: [
                 {
                     nombre: "Siemens Healthineers",
@@ -39,7 +39,8 @@ const biomedicData = {
             ]
         },
         {
-            nombre: "hemodiálisis",
+            nombre: "Hemodiálisis",
+            icono: "img/imgh.png", // RUTA LOCAL
             marcas: [
                 {
                     nombre: "cordiaX",
@@ -148,6 +149,7 @@ const biomedicData = {
         },
         {
             nombre: "Desfibriladores / DEA",
+            icono: "img/imgd.png", // RUTA LOCAL
             marcas: [
                 {
                     nombre: "Philips",
@@ -189,6 +191,7 @@ const biomedicData = {
         },
         {
             nombre: "Monitores Multiparámetro",
+            icono: "img/mpm.png", // RUTA LOCAL
             marcas: [
                 {
                     nombre: "Mindray",
@@ -203,7 +206,22 @@ const biomedicData = {
                                 { titulo: "Manual de Servicio BeneVision N Series", url: "https://es.scribd.com/document/728758305/BeneVision-N17N15N12N12C-Service-Manual-V6-0-ES" }
                             ],
                             comentarios: "«La integración con el HIS (Hospital Information System) es muy sensible a la configuración de red. Verificar el puerto y la velocidad de comunicación. La placa de red suele fallar por sobretensiones.» (Comentario traducido automáticamente al español)"
+                        },
+                        {
+                            nombre: "uMEC series",
+                            fallas: [
+                                { titulo: "No enciende / no pasa del logo al arranque", solucion: "Causas más probables: alimentación AC ausente o cable suelto; batería descargada o defectuosa; fusible o placa de alimentación dañados; botón de encendido o placa frontal con falla" },
+                                { titulo: "Pantalla negra, sin imagen o con artefactos gráficos", solucion: "Causas más probables: fallo de la retroiluminación/LCD, conector LVDS/flat cable suelto o dañado, fallo de la placa gráfica o firmware corrupto. Confirmar que el equipo está encendido (LEDs, sonido de ventilador). Si sí hay actividad pero pantalla negra, comprobar contraste/retroiluminación mediante el procedimiento de diagnóstico del menú (si accesible)."},
+                                { titulo: "SpO₂ errático o lectura ausente (valores inestables)", solucion: "sensor/pinza sucio o defectuoso; mala colocación en paciente; movimiento/vasoconstricción; cable de sensor dañados; configuración de filtro o alarma inadecuada. Confirmar modelo y compatibilidad del sensor con uMEC-12. Sustituir por sensor nuevo o conocido para descarte. Inspeccionar el conector del sensor (pines, corrosión), limpiar con alcohol isopropílico y volver a conectar; verificar continuidad del cable. Reposicionar sensor: evitar zonas con movimiento, asegurar buena perfusión (calentar al paciente si está frío); probar en otro dedo/oreja. Activar el test interno de SpO₂ (si el equipo lo soporta) o usar simulador de pulso para verificar respuesta del módulo. Si hay inconsistencias de calibración, actualizar firmware/algoritmo y, si es necesario, reemplazar módulo de sensor/placa de adquisición."},
+                                { titulo: "Error o lectura incorrecta de NIBP / “NIBP fail” / presión no alcanza.", solucion: "Causas más probables: fuga en manguito o líneas; bomba de NIBP (motor/pump) con falla; válvula solenoide obstruida; calibración incorrecta; manguito mal posicionado o incompatibilidad de tamaño. Solución (pasos técnicos):Inspeccionar visualmente el manguito, conector y tubing: buscar microfisuras o perdidas. Repetir prueba con manguito y tubing conocidos. Escuchar la bomba al iniciar ciclo: ausencia de sonido indica posible falla del motor/pump; medir tensión al motor y continuidad.Verificar la válvula solenoide (abre/cierra) — confirmar con osciloscopio o multímetro la señal de activación y comprobar la presión en el canal antes/después de la válvula.Ejecutar auto-test / test de NIBP en el menú de servicio (manual describe procedimiento) y consultar códigos de error. Si la presión no alcanza especificación, reemplazar bomba o válvula revisar filtros y cámaras de absorción (en modelos con ellos Documentar calibración post-reparación"},
+                                { titulo: "ECG sin señal o con artefactos (ondas distorsionadas / ruidos).", solucion: "Causas más probables: electrodos secos o mal pegados; cables/derivaciones dañados; mal contacto entre conector de cable y jack del monitor; interferencia eléctrica (mala toma tierra); configuración de ganancia o filtros inapropiados. Solución (pasos técnicos): Reemplazar electrodos y limpiar piel del paciente con alcohol; colocar electrodos en posiciones estándar.Probar cables/derivaciones con resistencia/continuid. Sustituir cable defectuoso. Revisar conexión del conector al equipo (pines, corrosión). Comprobar presencia de interferencia (220/110 V, fuentes de RF): aislar el equipo y desconectar otros dispositivos; verificar toma de tierra del sitio. Si persisten artefactos, activar test de ECG desde el servicio (simulador de señal) para verificar si la placa de adquisición está entregando señal limpia; reemplazar módulo de ECG si la placa falla."}
+                            ],
+                            manuales: [
+                                { titulo: "Manual de Servicio uMEC10 en adelante", url: "https://www.medicaecuador.com/wp-content/uploads/2019/12/Manual-uMEC-series.pdf" }
+                            ],
+                            comentarios: "«En foros biomédicos se repite que el uMEC-12 suele dar fallas de SpO₂ inestable por sensores genéricos o cables fatigados, resolviéndose casi siempre con cambio de sensor original; también comentan problemas de NIBP “cuff leak” por microfisuras en la manguera o válvula solenoide lenta, recomendando reemplazo de tubing y limpieza de válvula; otra falla común es ECG ruidoso por cables dañados, tierra deficiente o electrodos viejos, solucionado con cable nuevo y reubicación de toma a tierra; varios técnicos reportan pantalla negra por conector LVDS flojo o LED driver fallado, corrigiéndose al reajustar el flex o cambiar el módulo; finalmente, se menciona batería que no carga por circuito de carga fatigado o baterías OEM de baja calidad, usualmente resuelto al cambiar batería original Mindray o revisar la placa de carga."
                         }
+                        
                     ]
                 },
                 {
@@ -223,6 +241,7 @@ const biomedicData = {
         },
         {
             nombre: "Electrocardiógrafos",
+            icono: "img/ecg.png", // RUTA LOCAL
             marcas: [
                 {
                     nombre: "GE Healthcare",
@@ -248,8 +267,45 @@ const biomedicData = {
                 }
             ]
         },
+         {
+            nombre: "Respiradores",
+            icono: "img/respi.png", // RUTA LOCAL
+            marcas: [
+                {
+                    nombre: "Dräger",
+                    modelos: [
+                        {
+                            nombre: "Dräger Evita",
+                            fallas: [
+                                {
+                                    titulo: "Error de flujo / VT inconsistente",
+                                    solucion: "Problema: El ventilador muestra variación del volumen tidal (VT), alarmas de Flow Sensor Fault o diferencias entre la lectura inspiratoria y espiratoria. Causas probables:Sensor de flujo (pneumotac) húmedo por condensación.Acumulación de secreciones o polvo en el sensor.Desalineación del sensor o instalación incorrecta.Deterioro de la membrana interna del sensor. Solución técnica:Retirar el sensor y secar completamente (al menos 20–30 min). Limpiar el sensor con técnica recomendada (sin agua directa, sin soplado de alta presión). Verificar que el sensor esté instalado con el sentido correcto (flecha del flujo). Recolocar y ejecutar Auto-Calibración del Flow Sensor. Si persiste la inestabilidad, reemplazar por sensor original Dräger, ya que los genéricos suelen generar drift en Evita.."
+                                },
+                                 {
+                                    titulo: "Problema de alarma de Presión Alta / Low PEEP",
+                                    solucion: "Diagnóstico: Las alarmas de presión alta suelen indicar una obstrucción (secreciones, kink en el tubo, broncoespasmo). La alarma de PEEP baja indica una fuga o desconexión. Solución: Aspirar secreciones, verificar la posición del paciente, revisar todo el circuito de paciente por obstrucciones o acodamientos. Para Low PEEP, revisar conexiones del tubo endotraqueal, humidificador, y las trampas de agua. Ejecutar una prueba de fugas del circuito en modo servicio."
+                                },
+                                {
+                                    titulo: "Falla de Batería o no mantiene carga",
+                                    solucion: "Causa: Batería vieja o módulo de carga defectuoso. Solución: Ejecutar la prueba de capacidad de la batería (Battery Capacity Test) en modo servicio. Si el resultado es menor al 80% de lo nominal, reemplazar la batería. Si la batería es nueva y falla, medir el voltaje de carga de la placa principal."
+                                },
+                                {
+                                    titulo: "Mensaje de calibración de O2 fallida",
+                                    solucion: "Causa: Sensor de O2 defectuoso o descalibrado, o suministro de gas inestable. Solución: Reemplazar el sensor de O2 si tiene más de 12 meses de uso. Ejecutar la calibración de O2 con ambos gases (100% O2 y 21% Aire) y asegurarse de que los rangos de presión de suministro sean estables (3 a 6 bar)."
+                                }
+                            ],
+                            manuales: [
+                                { titulo: "Manual de Mantenimiento Evita V500", url: "https://www.scribd.com/document/556942695/Drager-Evita-V500-Service-Manual" }
+                            ],
+                            comentarios: "«La válvula espiratoria y el sensor de flujo son los puntos más críticos y propensos a la contaminación por humedad. Es vital seguir el protocolo de limpieza y secado rigurosamente para prevenir fallas recurrentes de flujo e inconsistencias de VT.»"
+                        }
+                    ]
+                }
+            ]
+        },
         {
             nombre: "Ecógrafos",
+            icono: "img/eco.png", // RUTA LOCAL
             marcas: [
                 {
                     nombre: "Philips",
@@ -283,7 +339,6 @@ const biomedicData = {
 // Referencias a los elementos del DOM
 const appContainer = document.getElementById('app');
 const mainTitle = document.getElementById('main-title');
-// Eliminamos la referencia a headerBack
 
 // --- Funciones de Utilidad ---
 
@@ -336,15 +391,18 @@ function navigate(viewKey, data = {}, isBackNavigation = false) {
     if (!isBackNavigation) {
         // Si no es home, agregamos la nueva vista a la pila
         if (viewKey !== 'home') {
-            biomedicData.currentView.history.push(viewKey);
+            // Solo agregar si la vista actual no es la que se va a renderizar (evita duplicados si se hace un navigate('marcas') a sí mismo)
+            if (biomedicData.currentView.history[biomedicData.currentView.history.length - 1] !== viewKey) {
+                biomedicData.currentView.history.push(viewKey);
+            }
         } else {
             // Si es 'home', resetear el historial
             biomedicData.currentView.history = ['home'];
         }
     } else {
-        // Si es navegación hacia atrás, ya se hizo pop en goBack(), solo actualizamos el título si volvimos al inicio
+        // Si es navegación hacia atrás, aseguramos que la pila esté limpia si llegamos a home
         if (viewKey === 'home') {
-             biomedicData.currentView.history = ['home']; // Asegurar que solo quede 'home'
+             biomedicData.currentView.history = ['home']; 
         }
     }
     
@@ -383,7 +441,7 @@ function navigate(viewKey, data = {}, isBackNavigation = false) {
     }
 
     // 4. Agregar la clave de la vista como un atributo de datos al contenedor principal
-    appContainer.dataset.currentScreen = viewKey;
+    document.getElementById('app-container').dataset.currentScreen = viewKey;
 }
 
 /**
@@ -399,19 +457,26 @@ function goBack() {
     }
 
     // Sacamos la vista actual de la pila (ej: 'ficha' sale)
+    // El elemento que se hace pop() es la vista actual, y el nuevo tope es la vista anterior
     history.pop(); 
     
-    // La vista anterior es la que queda en el tope de la pila (ej: 'modelos')
     const previousViewKey = history[history.length - 1]; 
     const currentView = biomedicData.currentView;
 
     // Lógica de navegación inversa basada en la vista anterior
-    if (previousViewKey === 'modelos') {
+    if (previousViewKey === 'ficha') {
+        // Esto no debería suceder si la lógica es correcta, pero si ocurre, volvemos al modelo.
+        navigate('modelos', {
+            marca: currentView.marca.nombre,
+            categoria: currentView.categoria.nombre
+        }, true);
+    }
+    else if (previousViewKey === 'modelos') {
         // Necesita cat y marca para volver a renderizar
         navigate('modelos', {
             marca: currentView.marca.nombre,
             categoria: currentView.categoria.nombre
-        }, true); // El true es importante para no añadir de nuevo la vista a la pila
+        }, true); 
     } else if (previousViewKey === 'marcas') {
         // Necesita cat para volver a renderizar
         navigate('marcas', {
@@ -440,11 +505,15 @@ function renderHome() {
 }
 
 function renderCategorias() {
-    const categoriasHtml = biomedicData.categorias.map(cat => `
-        <div class="card card-action" onclick="navigate('marcas', {categoria: '${cat.nombre}'})">
-            <h2 class="card-title">${cat.nombre}</h2>
-        </div>
-    `).join('');
+    // Modificado para usar la propiedad 'icono' como URL en una etiqueta <img>
+    const categoriasHtml = biomedicData.categorias.map(cat => {
+        return `
+            <div class="card card-action" onclick="navigate('marcas', {categoria: '${cat.nombre}'})">
+                <img src="${cat.icono}" alt="Icono de ${cat.nombre}" class="card-icon"> 
+                <h2 class="card-title">${cat.nombre}</h2>
+            </div>
+        `;
+    }).join('');
 
     appContainer.innerHTML = `
         <div class="content-grid">${categoriasHtml}</div>
@@ -545,13 +614,11 @@ function renderFichaEquipo(modelo) {
 
     appContainer.innerHTML = `
         <div class="screen" id="screen-ficha">
-            <!-- Sección de Fallas y Soluciones -->
             <div class="accordion-container">
                 <h3 class="card-subtitle">Fallas Comunes y Soluciones Rápidas</h3>
                 ${fallasHtml}
             </div>
 
-            <!-- Sección de Manuales y Documentación -->
             <div class="card mt-6">
                 <h3 class="card-subtitle">Manuales y Enlaces Útiles</h3>
                 <div class="manual-list">
@@ -559,7 +626,6 @@ function renderFichaEquipo(modelo) {
                 </div>
             </div>
 
-            <!-- Sección de Comentarios de Foros -->
             ${comentariosHtml}
         </div>
         ${createBackButtonHTML()}
